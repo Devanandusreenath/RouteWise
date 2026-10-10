@@ -1,0 +1,278 @@
+@import "tailwindcss" source(none);
+@source "../src";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --font-sans: "IBM Plex Sans", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Space Grotesk", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, monospace;
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --radius-2xl: calc(var(--radius) + 8px);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-success: var(--success);
+  --color-warning: var(--warning);
+  --color-danger: var(--danger);
+  --color-info: var(--info);
+  --color-surface: var(--surface);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-ring-offset-background: var(--background);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+}
+
+:root {
+  --radius: 0.75rem;
+  --background: oklch(0.17 0.025 250);
+  --foreground: oklch(0.96 0.005 240);
+  --surface: oklch(0.205 0.026 250);
+  --card: oklch(0.22 0.027 250);
+  --card-foreground: oklch(0.96 0.005 240);
+  --popover: oklch(0.23 0.028 250);
+  --popover-foreground: oklch(0.96 0.005 240);
+  --primary: oklch(0.76 0.13 175);
+  --primary-foreground: oklch(0.18 0.03 220);
+  --secondary: oklch(0.27 0.027 250);
+  --secondary-foreground: oklch(0.94 0.005 240);
+  --muted: oklch(0.26 0.022 250);
+  --muted-foreground: oklch(0.7 0.02 245);
+  --accent: oklch(0.3 0.04 200);
+  --accent-foreground: oklch(0.95 0.01 200);
+  --destructive: oklch(0.64 0.21 25);
+  --destructive-foreground: oklch(0.98 0 0);
+  --success: oklch(0.74 0.15 155);
+  --warning: oklch(0.8 0.15 80);
+  --danger: oklch(0.65 0.21 25);
+  --info: oklch(0.72 0.12 235);
+  --sev-1: oklch(0.78 0.12 160);
+  --sev-2: oklch(0.84 0.14 120);
+  --sev-3: oklch(0.82 0.15 85);
+  --sev-4: oklch(0.72 0.17 50);
+  --sev-5: oklch(0.63 0.22 25);
+  --border: oklch(0.32 0.025 250);
+  --input: oklch(0.34 0.025 250);
+  --ring: oklch(0.76 0.13 175);
+  --chart-1: oklch(0.76 0.13 175);
+  --chart-2: oklch(0.72 0.12 235);
+  --chart-3: oklch(0.8 0.15 80);
+  --chart-4: oklch(0.72 0.17 50);
+  --chart-5: oklch(0.63 0.22 25);
+  --sidebar: oklch(0.15 0.024 250);
+  --sidebar-foreground: oklch(0.9 0.01 240);
+  --sidebar-primary: oklch(0.76 0.13 175);
+  --sidebar-primary-foreground: oklch(0.18 0.03 220);
+  --sidebar-accent: oklch(0.24 0.03 230);
+  --sidebar-accent-foreground: oklch(0.97 0.005 240);
+  --sidebar-border: oklch(0.27 0.025 250);
+  --sidebar-ring: oklch(0.76 0.13 175);
+  --shadow-panel: 0 10px 30px -18px oklch(0 0 0 / 0.7);
+}
+
+@layer base {
+  * {
+    border-color: var(--color-border);
+  }
+  html {
+    color-scheme: dark;
+  }
+  body {
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+    font-family: var(--font-sans);
+  }
+  h1,
+  h2,
+  h3 {
+    font-family: var(--font-display);
+    letter-spacing: -0.01em;
+  }
+}
+
+@utility panel {
+  background-color: var(--color-card);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow-panel);
+}
+
+@utility field {
+  width: 100%;
+  height: 2.25rem;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--color-input);
+  background-color: var(--color-surface);
+  padding: 0 0.75rem;
+  font-size: 0.875rem;
+  color: var(--color-foreground);
+  &:focus {
+    outline: 2px solid var(--color-ring);
+    outline-offset: 1px;
+  }
+}
+
+@utility eyebrow {
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--color-muted-foreground);
+  font-weight: 600;
+}
+
+/* ---------- Map styling (Leaflet uses SVG paths; CSS overrides attributes) ---------- */
+.leaflet-container {
+  background: var(--surface);
+  font-family: var(--font-sans);
+}
+.leaflet-popup-content-wrapper,
+.leaflet-popup-tip {
+  background: var(--popover);
+  color: var(--popover-foreground);
+  border: 1px solid var(--border);
+}
+.leaflet-popup-content {
+  margin: 12px 14px;
+  font-size: 13px;
+  line-height: 1.45;
+}
+.leaflet-container a.leaflet-popup-close-button {
+  color: var(--muted-foreground);
+}
+.leaflet-control-attribution {
+  background: oklch(0.17 0.025 250 / 0.8) !important;
+  color: var(--muted-foreground) !important;
+}
+.leaflet-control-attribution a {
+  color: var(--primary) !important;
+}
+.leaflet-bar a {
+  background: var(--card) !important;
+  color: var(--foreground) !important;
+  border-color: var(--border) !important;
+}
+
+.hz {
+  stroke: var(--background);
+  stroke-width: 2;
+  fill-opacity: 0.95;
+}
+.hz-sev-1 { fill: var(--sev-1); }
+.hz-sev-2 { fill: var(--sev-2); }
+.hz-sev-3 { fill: var(--sev-3); }
+.hz-sev-4 { fill: var(--sev-4); }
+.hz-sev-5 { fill: var(--sev-5); }
+.hz-unverified {
+  stroke: var(--foreground);
+  stroke-dasharray: 3 3;
+  fill-opacity: 0.6;
+}
+.hz-resolved {
+  fill: var(--muted-foreground) !important;
+  fill-opacity: 0.45;
+}
+.hz-selected {
+  stroke: var(--primary);
+  stroke-width: 4;
+}
+.hz-heat {
+  stroke: none;
+  fill-opacity: 0.28;
+}
+
+.rw-route {
+  stroke: var(--muted-foreground);
+  stroke-opacity: 0.55;
+  stroke-width: 5;
+  stroke-dasharray: 10 8;
+  fill: none;
+}
+.rw-route-selected {
+  stroke: var(--primary);
+  stroke-opacity: 1;
+  stroke-width: 7;
+}
+.rw-route-selected.rw-route-unsuitable {
+  stroke: var(--danger);
+}
+
+.rw-pin,
+.rw-restriction,
+.rw-cluster {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-display);
+  font-weight: 700;
+  border: 2px solid var(--background);
+  box-shadow: var(--shadow-panel);
+}
+.rw-pin {
+  width: 28px;
+  height: 28px;
+  border-radius: 9999px;
+  font-size: 12px;
+}
+.rw-pin-origin { background: var(--info); color: var(--primary-foreground); }
+.rw-pin-dest { background: var(--primary); color: var(--primary-foreground); }
+.rw-pin-pick { background: var(--warning); color: var(--primary-foreground); }
+.rw-restriction {
+  width: 24px;
+  height: 24px;
+  border-radius: 6px;
+  font-size: 13px;
+  background: var(--foreground);
+  color: var(--background);
+  transform: rotate(45deg);
+}
+.rw-restriction span { transform: rotate(-45deg); }
+.rw-restriction-closure { background: var(--danger); color: var(--foreground); }
+.rw-cluster {
+  width: 34px;
+  height: 34px;
+  border-radius: 9999px;
+  background: var(--accent);
+  color: var(--accent-foreground);
+  border-color: var(--primary);
+  font-size: 13px;
+}
+
+.sev-dot-1 { background: var(--sev-1); }
+.sev-dot-2 { background: var(--sev-2); }
+.sev-dot-3 { background: var(--sev-3); }
+.sev-dot-4 { background: var(--sev-4); }
+.sev-dot-5 { background: var(--sev-5); }
+
+.rw-tiles-dark {
+  filter: invert(1) hue-rotate(185deg) brightness(0.85) contrast(0.9) saturate(0.6);
+}
